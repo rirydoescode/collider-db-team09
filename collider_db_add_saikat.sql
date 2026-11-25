@@ -60,12 +60,12 @@ CREATE TABLE IF NOT EXISTS flag_review (
   flag_id INT NOT NULL,
   reviewer_id INT NOT NULL,
   review_status VARCHAR(30) NOT NULL DEFAULT 'Pending',
-  review_reason` VARCHAR(255) DEFAULT NULL,
+  review_reason VARCHAR(255) DEFAULT NULL,
   reviewed_at DATETIME DEFAULT NULL,
   remarks TEXT,
   PRIMARY KEY (review_id),
   CONSTRAINT fk_flag_review_flag
-    FOREIGN KEY (flag_id) REFERENCES flaggedevent (`flag_id`)
+    FOREIGN KEY (flag_id) REFERENCES flaggedevent (flag_id)
     ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT fk_flag_review_reviewer
     FOREIGN KEY (reviewer_id) REFERENCES researcher (researcher_id)
